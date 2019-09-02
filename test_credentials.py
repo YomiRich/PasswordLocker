@@ -83,3 +83,14 @@ def test_display_credential(self):
 
         self.assertEqual(len(Credential.display_credential("Queen","Bee")),2)
         
+    def test_auto_generate_password(self):
+        '''
+        test auto generate to see if we can generate a password for a user credentials
+        '''
+        #password length
+        pass_length=8
+
+        #variable to hold the password
+        generated_password=Credential.generate_password(pass_length)
+
+        self.assertEqual(len(generated_password),pass_length)  
