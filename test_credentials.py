@@ -67,3 +67,19 @@ def test_save_credential(self):
         
         self.new_credential.delete_credential()
         self.assertEqual(len(Credential.credential_list),1)
+
+def test_display_credential(self):
+        '''
+        display credential that returns a list of a users credentials
+        '''
+
+        self.new_credential.save_credential()
+
+        test_credential=Credential("Queen","Bee","Ig","Queen")
+        test_credential.save_credential()
+
+        test_credential=test_credential=Credential("Queen","Bee","Ig","Queen")
+        test_credential.save_credential()
+
+        self.assertEqual(len(Credential.display_credential("Queen","Bee")),2)
+        
