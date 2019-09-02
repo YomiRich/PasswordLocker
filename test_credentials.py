@@ -45,7 +45,7 @@ def test_save_credential(self):
         self.assertEqual(len(Credential.credential_list),1)
 
 
-    def test_save_multiple_credential(self):
+def test_save_multiple_credential(self):
         '''
         tesr save multiple credential to test if we can save multiple credentials to the credential list
         '''
@@ -56,7 +56,7 @@ def test_save_credential(self):
         test_credential.save_credential()
         self.assertEqual(len(Credential.credential_list),2) 
         
-    def test_delete_credential(self):
+def test_delete_credential(self):
         '''
         delete credential to test if we can remove a credential from the credential list
         '''
@@ -83,7 +83,7 @@ def test_display_credential(self):
 
         self.assertEqual(len(Credential.display_credential("Queen","Bee")),2)
         
-    def test_auto_generate_password(self):
+def test_auto_generate_password(self):
         '''
         test auto generate to see if we can generate a password for a user credentials
         '''
@@ -95,7 +95,7 @@ def test_display_credential(self):
 
         self.assertEqual(len(generated_password),pass_length)  
         
-    def test_find_credential(self):
+def test_find_credential(self):
         '''
         test to see if we can search for and fetch a credential by its name
         '''
@@ -108,7 +108,7 @@ def test_display_credential(self):
         found_credential=Credential.find_by_name("Boo","Hoo","Pin")
         self.assertEqual(found_credential.credential_password,test_credential.credential_password)
 
-    def test_check_existing_credential(self):
+def test_check_existing_credential(self):
         '''
         test to check if we can return a boolean if we can/cannot find a credential
         '''
