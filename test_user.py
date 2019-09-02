@@ -38,5 +38,17 @@ class TestUser(unittest.TestCase):
         test_user=User("King","Royal")
         test_user.save_user()
         self.assertEqual(len(User.user_list),2)   
-        
+    
+    def tearDown(self):
+        '''
+        tearDown method that cleans up after each test has run
+        '''
+        User.user_list=[]  
+
+    def test_display_users(self):
+        '''
+        test_display_users returns list of password locker users
+        ''' 
+
+        self.assertEqual(User.display_users(),User.user_list)  
         
