@@ -24,13 +24,6 @@ class TestCredential(unittest.TestCase):
 
         Credential.credential_list=[]
 
-    def tearDown(self):
-        '''
-        tearDown method that cleans up after each test case is run
-        '''
-
-        Credential.credential_list=[]
-
 
     def test_init(self):
         '''
@@ -41,4 +34,25 @@ class TestCredential(unittest.TestCase):
         self.assertEqual(self.new_credential.user_password,"Yes") 
         self.assertEqual(self.new_credential.credential_name,"Win")
         self.assertEqual(self.new_credential.credential_password,"Winwin")
+
+
+def test_save_credential(self):
+        '''
+        test_save_credential to test if the credential obj is saved into the credential list
+        '''
+
+        self.new_credential.save_credential()
+        self.assertEqual(len(Credential.credential_list),1)
+
+
+    def test_save_multiple_credential(self):
+        '''
+        tesr save multiple credential to test if we can save multiple credentials to the credential list
+        '''
+
+        self.new_credential.save_credential()
+        test_credential=Credential("Master","Soul","Winner","Maggie")
+
+        test_credential.save_credential()
+        self.assertEqual(len(Credential.credential_list),2) 
         
