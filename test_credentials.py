@@ -101,11 +101,29 @@ def test_display_credential(self):
         '''
 
         self.new_credential.save_credential()
-        test_credential=Credential("Lincoln","FBI","Fauxilivia","Olivia_Dunham")
+        test_credential=Credential("Boo","Hoo","Pin","Yaas")
 
         test_credential.save_credential()
 
-        found_credential=Credential.find_by_name("Lincoln","FBI","Fauxilivia")
+        found_credential=Credential.find_by_name("Boo","Hoo","Pin")
         self.assertEqual(found_credential.credential_password,test_credential.credential_password)
 
+    def test_check_existing_credential(self):
+        '''
+        test to check if we can return a boolean if we can/cannot find a credential
+        '''
+
+
+        self.new_credential.save_credential()
+        test_credential=Credential("Kick","Me","Fb","What")
+
+        test_credential.save_credential()
+
+        credential_exists=Credential.credential_exists("Kick","Me","Fb")
+        self.assertTrue(credential_exists)
+
+
         
+        
+if __name__=='__main__':
+    unittest.main()        
